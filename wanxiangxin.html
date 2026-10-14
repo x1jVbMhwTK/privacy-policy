@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="万象信隐私政策，介绍本地笔记、待办及物品档案的数据处理、文件备份、权限及隐私保护方式。">
+  <meta name="referrer" content="no-referrer">
+  <title>隐私政策 | 万象信</title>
+  <style>
+    :root {
+      --primary: #5751d6;
+      --primary-light: #efedff;
+      --background: #f5f6fa;
+      --surface: #ffffff;
+      --text: #252637;
+      --muted: #626579;
+      --border: #e5e6ee;
+      --green: #176b54;
+      --green-bg: #edf8f2;
+      --amber: #865009;
+      --amber-bg: #fff6e7;
+      --shadow: 0 12px 42px rgba(40, 38, 84, .06);
+      --radius: 20px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 24px;
+    }
+
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+        "PingFang SC", "Microsoft YaHei", sans-serif;
+      font-size: 16px;
+      line-height: 1.85;
+      overflow-wrap: anywhere;
+    }
+
+    a {
+      color: var(--primary);
+      text-underline-offset: 4px;
+    }
+
+    a:hover { text-decoration-thickness: 2px; }
+
+    a:focus-visible, summary:focus-visible {
+      outline: 3px solid var(--primary);
+      outline-offset: 5px;
+      border-radius: 4px;
+    }
+
+    .page {
+      width: min(100% - 36px, 940px);
+      margin: 40px auto 28px;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 36px;
+      border-radius: 26px;
+      background: linear-gradient(125deg, #514bcb, #7664df);
+      color: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 22px;
+      font-weight: 700;
+      font-size: 20px;
+    }
+
+    .brand-icon {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 13px;
+      background: rgba(255, 255, 255, .17);
+      font-size: 24px;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(28px, 5vw, 38px);
+      letter-spacing: .02em;
+      line-height: 1.4;
+    }
+
+    .hero p {
+      margin: 0;
+      color: rgba(255, 255, 255, .9);
+    }
+
+    .dates {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+      font-size: 13px;
+    }
+
+    .dates span {
+      padding: 5px 12px;
+      border: 1px solid rgba(255, 255, 255, .23);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .09);
+    }
+
+    .card {
+      margin-top: 20px;
+      padding: 28px 32px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .metadata {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px 26px;
+      margin: 0;
+    }
+
+    .metadata div { min-width: 0; }
+
+    .metadata dt {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .metadata dd {
+      margin: 4px 0 0;
+      font-weight: 600;
+    }
+
+    code {
+      font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+      font-size: .9em;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      padding-bottom: 13px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .number {
+      flex-shrink: 0;
+      color: var(--primary);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 21px;
+      line-height: 1.5;
+    }
+
+    h3 {
+      margin: 23px 0 9px;
+      font-size: 17px;
+      line-height: 1.6;
+    }
+
+    p { margin: 12px 0; }
+    ul, ol { margin: 10px 0; padding-left: 24px; }
+    li { margin: 7px 0; }
+    strong { font-weight: 700; }
+
+    mark {
+      padding: 2px 4px;
+      border-radius: 5px;
+      background: var(--primary-light);
+      color: var(--primary);
+      font-weight: 600;
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+    }
+
+    .notice {
+      margin: 18px 0;
+      padding: 17px 20px;
+      border-left: 4px solid var(--primary);
+      border-radius: 0 12px 12px 0;
+      background: var(--primary-light);
+    }
+
+    .notice p:first-child { margin-top: 0; }
+    .notice p:last-child { margin-bottom: 0; }
+
+    .notice.success {
+      border-color: var(--green);
+      background: var(--green-bg);
+    }
+
+    .notice.warning {
+      border-color: var(--amber);
+      background: var(--amber-bg);
+    }
+
+    .notice-title {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .success .notice-title { color: var(--green); }
+    .warning .notice-title { color: var(--amber); }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 18px 0;
+    }
+
+    .summary-item {
+      padding: 15px;
+      border-radius: 13px;
+      background: var(--background);
+      border: 1px solid var(--border);
+    }
+
+    .summary-item strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--primary);
+    }
+
+    .summary-item span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .small {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    details summary {
+      cursor: pointer;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .toc {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px 24px;
+      margin: 14px 0 0;
+      padding-left: 24px;
+      font-size: 14px;
+    }
+
+    .toc a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .toc a:hover {
+      color: var(--primary);
+      text-decoration: underline;
+    }
+
+    .contact {
+      margin-top: 18px;
+      padding: 22px;
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      background: var(--primary-light);
+    }
+
+    .contact p { margin: 7px 0; }
+
+    .email {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 18px;
+      border-radius: 12px;
+      background: var(--primary);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .email:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      padding: 24px 10px 8px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .back-top {
+      display: inline-block;
+      margin-top: 9px;
+    }
+
+    @media (max-width: 600px) {
+      body { font-size: 15px; }
+      .page { width: calc(100% - 24px); margin-top: 14px; }
+      .hero { padding: 26px 22px; border-radius: 20px; }
+      .card { padding: 22px 19px; margin-top: 14px; border-radius: 17px; }
+      .metadata, .toc { grid-template-columns: 1fr; }
+      .summary-grid { gap: 8px; }
+      .summary-item { padding: 12px; }
+      .summary-item span { font-size: 13px; }
+      h2 { font-size: 19px; }
+      .notice { padding: 14px; }
+      .contact { padding: 17px; }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --primary: #c3bcff;
+        --primary-light: #302b49;
+        --background: #12131b;
+        --surface: #1b1d28;
+        --text: #ececf4;
+        --muted: #b2b4c5;
+        --border: #343643;
+        --green: #86dfb6;
+        --green-bg: #1b342b;
+        --amber: #ffd089;
+        --amber-bg: #382d1e;
+        --shadow: none;
+      }
+      .email {
+        color: #211c38;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+
+    @media print {
+      body { background: #fff; color: #000; font-size: 11pt; }
+      .page { width: 100%; margin: 0; }
+      .hero {
+        background: #fff;
+        color: #000;
+        box-shadow: none;
+        border: 1px solid #ccc;
+      }
+      .hero p { color: #333; }
+      .dates span { border-color: #ccc; }
+      .card { box-shadow: none; padding: 20px; }
+      .back-top, .toc-card { display: none; }
+      a { color: #000; }
+      .email { background: none; color: #000; padding: 0; }
+      h2, h3 { break-after: avoid; }
+      .notice, .contact { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page" id="top">
+    <header class="hero">
+      <div class="brand">
+        <span class="brand-icon" aria-hidden="true">信</span>
+        <span>万象信</span>
+      </div>
+      <h1>隐私政策</h1>
+      <p>了解您的记录如何存储，以及如何管理和保护自己的数据。</p>
+      <div class="dates">
+        <!-- 正式发布前，请调整为实际更新日期及生效日期。 -->
+        <span>更新日期：<time datetime="2026-10-14">2026年10月14日</time></span>
+        <span>生效日期：<time datetime="2026-10-14">2026年10月14日</time></span>
+      </div>
+    </header>
+
+    <section class="card" aria-label="应用及开发者信息">
+      <dl class="metadata">
+        <div>
+          <dt>应用名称</dt>
+          <dd>万象信</dd>
+        </div>
+        <div>
+          <dt>应用包名</dt>
+          <dd><code>com.wanxiangxin.cha</code></dd>
+        </div>
+        <div>
+          <dt>开发者及运营者</dt>
+          <dd>武汉市用和邦科技有限公司</dd>
+        </div>
+        <div>
+          <dt>联系邮箱</dt>
+          <dd><a href="mailto:whyhbkj@163.com">whyhbkj@163.com</a></dd>
+        </div>
+      </dl>
+    </section>
+
+    <section class="card" aria-labelledby="overview-heading">
+      <div class="section-title">
+        <h2 id="overview-heading">重要信息速览</h2>
+      </div>
+      <div class="summary-grid">
+        <div class="summary-item">
+          <strong>本地存储</strong>
+          <span>记录保存在当前设备，不上传至我们的服务器。</span>
+        </div>
+        <div class="summary-item">
+          <strong>无需账号</strong>
+          <span>不提供注册、登录或云同步服务。</span>
+        </div>
+        <div class="summary-item">
+          <strong>无联网权限</strong>
+          <span>未接入广告、统计或在线服务类 SDK。</span>
+        </div>
+        <div class="summary-item">
+          <strong>备份需妥善保管</strong>
+          <span>JSON 和 CSV 导出文件未加密。</span>
+        </div>
+      </div>
+      <div class="notice warning">
+        <span class="notice-title">请特别注意数据安全</span>
+        <p><strong>卸载应用或清除应用数据通常会删除本地记录。</strong>请提前导出 JSON 备份。删除应用内记录不会自动删除您已经导出或分享的文件。</p>
+      </div>
+      <p class="small">以上为阅读提示，完整的数据处理说明请参阅以下正文。</p>
+    </section>
+
+    <nav class="card toc-card" aria-label="隐私政策目录">
+      <details open>
+        <summary>政策目录</summary>
+        <ol class="toc">
+          <li><a href="#information">我们如何处理您的信息</a></li>
+          <li><a href="#permissions">应用权限与系统功能</a></li>
+          <li><a href="#backup">备份、导入与导出</a></li>
+          <li><a href="#storage">信息的存储与保留</a></li>
+          <li><a href="#sharing">共享、转让与公开披露</a></li>
+          <li><a href="#third-party">第三方组件与服务</a></li>
+          <li><a href="#security">我们如何保护信息</a></li>
+          <li><a href="#rights">您如何管理自己的信息</a></li>
+          <li><a href="#children">未成年人保护</a></li>
+          <li><a href="#updates">隐私政策的更新</a></li>
+          <li><a href="#contact">联系我们</a></li>
+        </ol>
+      </details>
+    </nav>
+
+    <section class="card" aria-label="政策引言">
+      <p>武汉市用和邦科技有限公司（以下简称“我们”）重视您的个人信息和隐私保护。本隐私政策适用于我们提供的“万象信”安卓应用（以下简称“本应用”），用于说明您使用本应用时，相关信息的处理方式，以及您如何管理自己的数据。</p>
+      <p>万象信是一款以本地使用为核心的笔记、待办与物品档案管理工具。<mark>当前版本不提供账号注册、登录或云同步服务，未声明应用联网权限，未接入广告、统计分析或在线服务类第三方 SDK，不将您的记录上传至我们的服务器。</mark></p>
+      <p>请在使用本应用前阅读本政策，尤其是与本地存储、文件导出、数据删除和第三方服务有关的内容。</p>
+    </section>
+
+    <section class="card" id="information" aria-labelledby="information-heading">
+      <div class="section-title">
+        <span class="number" aria-hidden="true">01</span>
+        <h2 id="information-heading">我们如何处理您的信息</h2>
+      </div>
+
+      <h3>1. 您主动输入的记录</h3>
+      <p>当您使用相应功能时，本应用会在您的设备本地处理和保存您主动输入的信息，包括：</p>
+      <ul>
+        <li><strong>笔记信息：</strong>标题、正文、分类、标签、卡片颜色和置顶状态。</li>
+        <li><strong>待办信息：</strong>任务标题、详细说明、分类、标签、优先级、截止日期、完成状态和置顶状态。</li>
+        <li><strong>物品档案信息：</strong>物品名称、说明、分类、标签、存放位置、购买价格、购买日期和保修截止日期。</li>
+        <li><strong>记录管理信息：</strong>记录标识、创建时间、更新时间及回收站状态。</li>
+        <li><strong>应用设置：</strong>您选择的跟随系统、浅色或深色主题设置。</li>
+      </ul>
+      <p>以上信息用于实现记录保存、编辑、搜索、分类筛选、置顶、任务管理、日期提示、统计展示、回收站和备份恢复等功能。</p>
+      <div class="notice success">
+        <span class="notice-title">您的记录保存在本地</span>
+        <p>这些信息保存在本应用的内部本地存储中，<strong>不通过本应用上传给我们</strong>。我们不会因为您使用这些本地功能而在服务器端收集您的记录。</p>
+      </div>
+      <p>您可以自行决定记录内容。<strong>请谨慎填写身份证号码、银行账号、密码、医疗信息等敏感内容</strong>，并避免在没有合法依据的情况下记录他人的个人信息。</p>
+
+      <h3>2. 自动生成的本地信息</h3>
+      <p>为区分记录、确定展示顺序及处理备份合并，本应用会在本地生成记录标识、创建时间和更新时间。</p>
+      <p>记录标识用于区分本应用内的记录，<mark>不用于识别您的设备，也不用于跨应用跟踪。</mark></p>
+
+      <h3>3. 我们不主动收集的信息</h3>
+      <p>当前版本不通过本应用主动收集您的手机号、账号信息、通讯录、短信、通话记录、位置、设备广告标识或设备唯一标识，也不通过广告或统计 SDK 收集您的使用行为。</p>
+      <p><strong>当前版本不提供后台通知提醒。</strong>任务截止日期和保修日期提示在应用内展示。</p>
+
+      <h3>4. 您主动联系我们时提供的信息</h3>
+      <p>当您通过电子邮箱联系我们时，我们会处理您的邮箱地址、邮件内容，以及您主动提供的附件或其他信息，用于沟通、排查问题、答复咨询或处理您的请求。</p>
+      <p>请尽量不要在邮件中发送与问题无关的敏感信息。如果需要提供截图或备份文件，请先删除或遮盖不必要的个人信息。</p>
+      <p>此类邮件通信独立于本应用的本地记录功能。我们只在处理相关事项及满足必要法律义务所需的范围内保留相关信息，不将其用于广告营销。</p>
+    </section>
+
+    <section class="card" id="permissions" aria-labelledby="permissions-heading">
+      <div class="section-title">
+        <span class="number" aria-hidden="true">02</span>
+        <h2 id="permissions-heading">应用权限与系统功能</h2>
+      </div>
+
+      <h3>1. 应用权限</h3>
+      <div class="notice success">
+        <span class="notice-title">不申请非必要敏感权限</span>
+        <p>当前版本< strong>未声明联网权限</strong>，也不申请通讯录、短信、电话、定位、相机、麦克风、通知或全盘存储访问权限。</p>
+      </div>
+
+      <h3>2. 系统文件选择器</h3>
+      <p>当您主动导入备份或导出文件时，本应用调用 Android 系统文件选择器，访问您明确选择的文件或目标保存位置，<mark>不扫描您的全部设备文件。</mark></p>
+      <p>文件访问授权范围及有效期由 Android 系统和您选择的文档提供程序管理。</p>
+
+      <h3>3. 系统分享</h3>
+      <p>当您主动点击分享，并选择目标应用时，本应用将所选记录的标题和正文交给您选择的目标应用。</p>
+      <p><strong>分享后，目标应用如何处理这些内容，由其自身的隐私政策和服务规则约束。</strong>请在分享前确认记录内容和接收对象。</p>
+    </section>
+
+    <section class="card" id="backup" aria-labelledby="backup-heading">
+      <div class="section-title">
+        <span class="number" aria-hidden="true">03</span>
+        <h2 id="backup-heading">备份、导入与导出</h2>
+      </div>
+
+      <h3>1. JSON 备份</h3>
+      <p>您可以主动导出 JSON 备份。备份包含本应用中的记录、<strong>回收站记录</strong>及主题设置，用于日后恢复数据。</p>
+      <p>导入备份时，本应用在本地读取和校验您选择的文件，并允许您预览后选择合并恢复或替换当前数据。合并时，同一记录标识的记录以更新时间较新的内容为准。</p>
+      <p><mark>替换恢复会覆盖当前数据。</mark>请在操作前确认备份内容，并根据需要备份现有记录。</p>
+
+      <h3>2. CSV 导出</h3>
+      <p>您可以主动将未在回收站中的记录导出为 CSV 文件，用于在表格软件中查看。<strong>CSV 不用于本应用的数据恢复。</strong></p>
+
+      <h3>3. 导出文件的安全</h3>
+      <div class="notice warning">
+        <span class="notice-title">备份文件未加密</span>
+        <p>当前版本导出的 <strong>JSON 和 CSV 文件未加密</strong>，可能包含您输入的个人信息或其他私密内容。请将文件保存在可信位置，并谨慎转发。</p>
+        <p>本应用内删除记录或卸载应用，<strong>不会自动删除您已经导出的文件</strong>。您需要自行管理和删除这些文件。</p>
+      </div>
+
+      <h3>4. 云盘及其他文件提供程序</h3>
+      <p>如果您通过系统文件选择器将文件保存到云盘，或从云盘导入文件，相关云端存储、同步和传输行为由您选择的文件提供程序实施，<strong>不属于本应用提供的云同步服务。</strong></p>
+      <p>请阅读相应服务提供方的隐私政策，并确认其适合保存您的记录。</p>
+    </section>
+
+    <section class="card" id="storage" aria-labelledby="storage-heading">
+      <div class="section-title">
+        <span class="number" aria-hidden="true">04</span>
+        <h2 id="storage-heading">信息的存储与保留</h2>
+      </div>
+
+      <h3>1. 本地记录</h3>
+      <p>本应用记录及设置保存在当前设备的应用内部本地存储中。当前版本不设置用于保存这些记录的开发者服务器。</p>
+      <p>本地记录通常保留至您主动删除、替换数据、清除应用数据或卸载应用时。<mark>进入回收站的记录仍然保存在本地</mark>，直至您恢复、永久删除或清空回收站。</p>
+
+      <h3>2. 系统备份</h3>
+      <p>当前版本在应用配置中关闭系统自动备份，并配置排除应用数据的系统备份与设备迁移规则。</p>
+      <p>不同设备厂商的系统工具或您自行使用的备份工具可能具有不同的处理方式，请同时了解相关工具的说明。</p>
+
+      <h3>3. 邮件咨询信息</h3>
+      <p>您通过邮件主动提供的信息，会在处理相关事项、后续必要沟通及满足适用法律义务所需的期限内保留。我们会对不再需要的信息采取适当的删除或其他处置措施。</p>
+    </section>
+
+    <section class="card" id="sharing" aria-labelledby="sharing-heading">
+      <div class="section-title">
+        <span class="number" aria-hidden="true">05</span>
+        <h2 id="sharing-heading">共享、转让与公开披露</h2>
+      </div>
+      <p><mark>当前版本不会主动将您保存在本应用中的记录共享、转让或公开披露给第三方，也不会出售您的个人信息。</mark></p>
+      <p>以下由您主动发起的行为不属于我们在后台共享记录：</p>
+      <ul>
+        <li>通过系统分享将记录发送给您选择的应用或接收方；</li>
+        <li>将备份或导出文件保存到您选择的云盘或其他存储服务；</li>
+        <li>通过邮件主动向我们发送问题说明、截图或文件。</li>
+      </ul>
+      <p>对于我们因邮件咨询等方式实际持有的信息，如依法需要提供，我们将依照适用法律规定处理，并在法律允许的范围内采取必要措施。</p>
+    </section>
+
+    <section class="card" id="third-party" aria-labelledby="third-party-heading">
+      <div class="section-title">
+        <span class="number" aria-hidden="true">06</span>
+        <h2 id="third-party-heading">第三方组件与服务</h2>
+      </div>
+      <p>当前版本使用 Android、AndroidX、Jetpack Compose、Material 3 及 Kotlin 相关基础组件，实现界面展示、本地数据处理和系统功能调用，<strong>未接入用于广告投放、行为统计或记录上传的第三方 SDK。</strong></p>
+      <p>您选择使用的分享目标应用、文件提供程序、邮箱服务及设备操作系统可能按照各自的规则处理信息。此类独立服务的处理行为不由本政策替代。</p>
+      <div class="notice">
+        <span class="notice-title">隐私政策网页的访问</span>
+        <p>本政策适用于万象信应用。如果您通过网页查看本政策，网页托管服务可能产生为提供网页服务所需的访问日志；该处理行为应按实际网页部署情况另行说明，<strong>不应被理解为万象信应用上传了您的记录。</strong></p>
+      </div>
+      <!--
+        部署前请核实托管服务、服务器日志、保存期限及是否启用统计，
+        根据实际情况完善上面的网页访问说明。
+        本 HTML 本身不加载外部脚本、字体、图片或统计服务。
+      -->
+    </section>
+
+    <section class="card" id="security" aria-labelledby="security-heading">
+      <div class="section-title">
+        <span class="number" aria-hidden="true">07</span>
+        <h2 id="security-heading">我们如何保护信息</h2>
+      </div>
+      <p>我们通过应用内部存储、减少权限申请、不接入非必要在线服务以及本地文件原子写入等措施，降低不必要的数据访问和文件写入异常风险。</p>
+      <div class="notice warning">
+        <span class="notice-title">安全措施的限制</span>
+        <p>上述措施<strong>不代表数据已加密</strong>，也不能保证在设备丢失、被恶意软件控制、系统遭破解、存储损坏或操作失误等情况下数据绝对安全。</p>
+        <p><strong>当前版本不提供应用内密码锁或备份文件加密功能。</strong></p>
+      </div>
+      <p>建议您：</p>
+      <ul>
+        <li>为设备设置可靠的锁屏密码，并保持系统更新；</li>
+        <li>不将私密备份保存到不可信位置；</li>
+        <li>定期导出并妥善保存 JSON 备份；</li>
+        <li>在分享、导出及发送问题附件前检查其中是否包含敏感信息。</li>
+      </ul>
+    </section>
+
+    <section class="card" id="rights" aria-labelledby="rights-heading">
+      <div class="section-title">
+        <span class="number" aria-hidden="true">08</span>
+        <h2 id="rights-heading">您如何管理自己的信息</h2>
+      </div>
+
+      <h3>1. 查看、更正和导出</h3>
+      <p>您可以直接在本应用中查看、搜索、编辑记录，通过 JSON 备份或 CSV 导出获取相应数据副本。</p>
+
+      <h3>2. 删除和恢复</h3>
+      <p>您可以将记录移入回收站，并在回收站中恢复或永久删除记录。也可以清空回收站，或在设置页面删除全部记录。</p>
+      <p><strong>“永久删除”表示相应记录从本应用当前使用的数据文件中移除，并不构成对设备存储介质进行取证级不可恢复擦除的承诺。</strong></p>
+      <p>您已导出的文件，以及此前发送至其他应用或接收方的内容，不会随本应用内删除操作自动删除。</p>
+
+      <h3>3. 停止使用</h3>
+      <div class="notice warning">
+        <span class="notice-title">卸载前请先备份</span>
+        <p>您可以停止使用、清除应用数据或卸载本应用。<strong>卸载或清除应用数据通常会删除本应用的本地数据</strong>，建议提前备份。</p>
+      </div>
+      <p>当前版本没有账号系统，因此不涉及账号注销。</p>
+
+      <h3>4. 联系我们处理请求</h3>
+      <p>如您对我们因邮件联系等方式实际持有的个人信息提出查阅、更正、删除或其他合法请求，可通过 <a href="mailto:whyhbkj@163.com">whyhbkj@163.com</a> 联系我们。</p>
+      <p>我们可能在必要范围内核实请求与您的关联，以避免他人冒用身份。在核实后，我们会在适用法律要求的期限内处理并答复。</p>
+      <p><mark>对于仅保存在您设备上的记录，我们无法远程读取、修改、删除或恢复</mark>，请通过本应用的相应功能操作。</p>
+    </section>
+
+    <section class="card" id="children" aria-labelledby="children-heading">
+      <div class="section-title">
+        <span class="number" aria-hidden="true">09</span>
+        <h2 id="children-heading">未成年人保护</h2>
+      </div>
+      <p>如果您是未成年人，建议在父母或其他监护人的指导下阅读本政策并使用本应用，谨慎记录、分享或导出个人信息。</p>
+      <p><mark>如果您不满十四周岁，应在取得父母或其他监护人同意后使用本应用。</mark>当前版本不提供用户身份识别或年龄验证功能，也不会通过服务器主动收集儿童的本地记录。</p>
+      <p>如果监护人发现未成年人通过邮件向我们提供了不应提供的个人信息，或对相关信息处理有疑问，请通过本政策所列邮箱联系我们。</p>
+    </section>
+
+    <section class="card" id="updates" aria-labelledby="updates-heading">
+      <div class="section-title">
+        <span class="number" aria-hidden="true">10</span>
+        <h2 id="updates-heading">隐私政策的更新</h2>
+      </div>
+      <p>如本应用功能、数据处理方式或适用法律要求发生变化，我们会相应更新本政策，并通过应用内说明、政策页面或其他适当方式告知您。</p>
+      <p>如果未来增加账号、云同步、广告、统计分析、在线服务或新的权限申请，<strong>我们将在相关功能启用前说明新增处理目的、信息类型及相关规则，并依法取得必要的同意或授权。</strong></p>
+      <p>本政策更新不会当然授权我们对已存在的信息进行与原处理目的不相符的处理。</p>
+    </section>
+
+    <section class="card" id="contact" aria-labelledby="contact-heading">
+      <div class="section-title">
+        <span class="number" aria-hidden="true">11</span>
+        <h2 id="contact-heading">联系我们</h2>
+      </div>
+      <p>如您对本政策、本应用的数据处理方式或个人信息保护有任何疑问、意见或请求，请联系我们：</p>
+      <div class="contact">
+        <p><strong>开发者及运营者：</strong>武汉市用和邦科技有限公司</p>
+        <p><strong>应用名称：</strong>万象信</p>
+        <p><strong>应用包名：</strong><code>com.wanxiangxin.cha</code></p>
+        <p><strong>联系邮箱：</strong>whyhbkj@163.com</p>
+        <a class="email" href="mailto:whyhbkj@163.com">发送邮件：whyhbkj@163.com</a>
+      </div>
+    </section>
+
+    <footer>
+      <div>万象信 · 武汉市用和邦科技有限公司</div>
+      <div>本隐私政策适用于万象信安卓应用。</div>
+      <a class="back-top" href="#top">返回顶部 ↑</a>
+    </footer>
+  </main>
+</body>
+</html>
