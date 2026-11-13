@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="GATE 离线工具应用隐私政策。">
+  <meta name="referrer" content="no-referrer">
+  <title>GATE 隐私政策</title>
+  <style>
+    :root {
+      --background: #f4f7f8;
+      --surface: #ffffff;
+      --text: #21343c;
+      --muted: #63747c;
+      --primary: #146955;
+      --border: #dce7e7;
+      --highlight: #e6f5ed;
+      --warning: #fff5df;
+      --warning-border: #cf982c;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+        "PingFang SC", "Microsoft YaHei", sans-serif;
+      font-size: 16px;
+      line-height: 1.9;
+      overflow-wrap: anywhere;
+    }
+
+    .container {
+      width: min(900px, calc(100% - 32px));
+      margin: 32px auto;
+    }
+
+    header {
+      padding: 36px;
+      border-radius: 24px;
+      color: #ffffff;
+      background: linear-gradient(125deg, #153b3c, #424768);
+    }
+
+    .brand {
+      margin: 0 0 10px;
+      color: #aaf0cd;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 3px;
+    }
+
+    h1 {
+      margin: 0 0 16px;
+      font-size: 32px;
+      line-height: 1.4;
+    }
+
+    header p {
+      margin: 6px 0;
+      color: #e0ebed;
+    }
+
+    main {
+      margin-top: 20px;
+      padding: 32px;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      background: var(--surface);
+    }
+
+    h2 {
+      margin: 34px 0 14px;
+      font-size: 23px;
+      line-height: 1.5;
+      scroll-margin-top: 20px;
+    }
+
+    h3 {
+      margin: 24px 0 10px;
+      font-size: 18px;
+    }
+
+    p { margin: 12px 0; }
+
+    ul, ol { padding-left: 24px; }
+
+    li { margin: 8px 0; }
+
+    a {
+      color: var(--primary);
+      text-underline-offset: 4px;
+    }
+
+    a:focus-visible {
+      outline: 3px solid var(--primary);
+      outline-offset: 4px;
+      border-radius: 3px;
+    }
+
+    mark {
+      padding: 2px 5px;
+      color: var(--text);
+      background: var(--highlight);
+      border-radius: 4px;
+    }
+
+    .notice {
+      margin: 20px 0;
+      padding: 18px 20px;
+      background: var(--highlight);
+      border-left: 4px solid var(--primary);
+      border-radius: 12px;
+    }
+
+    .warning {
+      background: var(--warning);
+      border-left-color: var(--warning-border);
+    }
+
+    .notice p:first-child { margin-top: 0; }
+
+    .notice p:last-child { margin-bottom: 0; }
+
+    nav {
+      margin: 24px 0;
+      padding: 20px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+    }
+
+    nav h2 {
+      margin: 0 0 10px;
+      font-size: 18px;
+    }
+
+    nav ol {
+      margin: 0;
+      columns: 2;
+      column-gap: 28px;
+    }
+
+    nav li { break-inside: avoid; }
+
+    .table-wrap {
+      margin: 16px 0;
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+
+    table {
+      width: 100%;
+      min-width: 580px;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 14px;
+      text-align: left;
+      vertical-align: top;
+      border-bottom: 1px solid var(--border);
+    }
+
+    th { background: var(--highlight); }
+
+    tr:last-child td { border-bottom: none; }
+
+    .contact {
+      padding: 22px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: var(--background);
+    }
+
+    footer {
+      padding: 24px 8px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        width: calc(100% - 24px);
+        margin: 12px auto;
+      }
+
+      header {
+        padding: 26px 22px;
+        border-radius: 18px;
+      }
+
+      main {
+        padding: 22px 18px;
+        border-radius: 18px;
+      }
+
+      h1 { font-size: 28px; }
+
+      h2 { font-size: 21px; }
+
+      nav ol { columns: 1; }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --background: #101a20;
+        --surface: #18262d;
+        --text: #e7eff1;
+        --muted: #a9bbc2;
+        --primary: #a7efd0;
+        --border: #34474f;
+        --highlight: #203e35;
+        --warning: #3b3020;
+        --warning-border: #dfb353;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+
+    @media print {
+      body {
+        background: white;
+        color: black;
+      }
+
+      .container {
+        width: 100%;
+        margin: 0;
+      }
+
+      header {
+        padding: 0;
+        background: none;
+        color: black;
+      }
+
+      header p, .brand { color: black; }
+
+      main {
+        padding: 0;
+        border: 0;
+      }
+
+      nav, footer { display: none; }
+
+      a { color: black; }
+
+      .table-wrap { overflow: visible; }
+
+      table { min-width: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <p class="brand">GATE · PRIVACY POLICY</p>
+      <h1>GATE 隐私政策</h1>
+      <p>运营主体：山东鑫陈数码科技有限公司</p>
+      <p>生效日期：<time datetime="2026-11-13">2026 年 11 月 13 日</time></p>
+      <p>更新日期：<time datetime="2026-11-13">2026 年 11 月 13 日</time></p>
+    </header>
+
+    <main>
+      <section aria-label="政策概述">
+        <p>
+          山东鑫陈数码科技有限公司（以下简称“我们”）是 GATE 的运营主体。
+          我们尊重并重视您的隐私。本政策说明您使用 GATE 时，
+          应用如何处理本地数据，以及您如何管理数据和联系我们。
+        </p>
+
+        <p>
+          请在使用前阅读本政策，特别是以<strong>加粗</strong>、
+          <mark>高亮</mark>和提示框标识的内容。
+        </p>
+
+        <div class="notice">
+          <p><strong>隐私要点</strong></p>
+          <ul>
+            <li><strong>GATE 是无需注册账号的离线工具应用。</strong></li>
+            <li>应用自身不主动联网，不将本地工具数据上传至我们的服务器。</li>
+            <li>清单、协议同意版本及操作足迹保存在设备本地。</li>
+            <li>生成密码、文本及其他工具输入或结果不写入工具持久化存储。</li>
+            <li>不集成广告 SDK 或应用行为统计 SDK。</li>
+            <li>
+              您主动查看隐私政策或用户协议时，会由外部浏览器打开网页；
+              相关网页访问由浏览器和网站处理。
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <nav aria-label="隐私政策目录">
+        <h2>目录</h2>
+        <ol>
+          <li><a href="#scope">适用范围</a></li>
+          <li><a href="#local">本地数据处理</a></li>
+          <li><a href="#permissions">权限与剪贴板</a></li>
+          <li><a href="#browser">外部浏览器与第三方服务</a></li>
+          <li><a href="#sharing">信息共享与披露</a></li>
+          <li><a href="#storage">数据存储与安全</a></li>
+          <li><a href="#rights">您的权利与数据管理</a></li>
+          <li><a href="#children">未成年人保护</a></li>
+          <li><a href="#updates">政策更新</a></li>
+          <li><a href="#contact">联系我们</a></li>
+        </ol>
+      </nav>
+
+      <section id="scope">
+        <h2>一、适用范围</h2>
+        <p>
+          本政策适用于 GATE 的离线工具及应用内的隐私管理功能。
+          工具包括专注计时、行动清单、单位换算、文本整理、
+          密码生成、UUID 生成、随机决策和本机操作足迹。
+        </p>
+        <p>
+          本政策不替代操作系统、外部浏览器、应用商店或独立第三方服务的隐私说明。
+          这些服务自行开展的信息处理，适用其各自的隐私政策。
+        </p>
+      </section>
+
+      <section id="local">
+        <h2>二、本地数据处理</h2>
+
+        <h3>2.1 保存在设备上的数据</h3>
+        <p>
+          <mark>下列数据仅用于本机功能，不由 GATE 上传至我们的服务器。</mark>
+        </p>
+
+        <div class="table-wrap" role="region" aria-label="本地保存数据说明" tabindex="0">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">数据类型</th>
+                <th scope="col">具体内容</th>
+                <th scope="col">用途与保留方式</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>行动清单</td>
+                <td>清单文字、项目标识、完成状态</td>
+                <td>
+                  用于添加、展示、勾选、删除及重启后恢复清单。
+                  保存在应用私有存储，直至您删除或清除。
+                </td>
+              </tr>
+              <tr>
+                <td>协议同意状态</td>
+                <td>已同意的协议版本标记</td>
+                <td>
+                  用于判断是否需要显示协议弹窗。
+                  撤回同意或清除应用存储后删除。
+                </td>
+              </tr>
+              <tr>
+                <td>操作足迹</td>
+                <td>操作类型和操作时间</td>
+                <td>
+                  用于本机历史展示，最多保留最近 60 条。
+                  不保存生成密码、文本正文或换算数值。
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>2.2 不持久化保存的工具内容</h3>
+        <ul>
+          <li><strong>专注计时：</strong>所选时长、剩余时间和运行状态用于当前计时。</li>
+          <li><strong>单位换算：</strong>输入数值、单位和结果在本机计算。</li>
+          <li><strong>文本整理：</strong>输入文本在本机用于统计、去重和格式整理。</li>
+          <li><strong>密码生成：</strong>字符类型、长度等设置及生成结果在本机处理。</li>
+          <li><strong>UUID 生成：</strong>标识符及其显示格式在本机生成和处理。</li>
+          <li><strong>随机决策：</strong>您输入的选项在本机用于随机选择。</li>
+        </ul>
+        <p>
+          上述工具内容不写入工具持久化存储，不作为操作足迹正文保存。
+          关闭相应工具、界面重建或应用进程结束后，
+          未持久化内容可能丢失。具体保留至何时取决于当前工具的运行状态。
+        </p>
+
+        <div class="notice warning">
+          <p>
+            <strong>敏感内容提醒：</strong>
+            GATE 不是密码保险箱或加密文件托管服务。
+            请勿将普通清单或文本工具视为敏感信息的安全存储。
+            界面清空不代表设备内存中的字符串已被即时、不可恢复地擦除。
+          </p>
+        </div>
+
+        <h3>2.3 您主动联系我们的信息</h3>
+        <p>
+          如果您向联系邮箱发送咨询、投诉或反馈，
+          我们会处理您提供的邮箱地址、邮件内容及主动提交的附件，
+          仅用于回复、处理问题和核实相关请求。
+          请避免发送与问题无关的身份证件、账户密码等敏感信息。
+        </p>
+        <p>
+          联系信息按处理相关事项所需的最短必要期间保留；
+          法律法规要求继续保存的，按照相应要求处理。
+          您可以联系我们询问有关保留情况或提出删除请求。
+        </p>
+      </section>
+
+      <section id="permissions">
+        <h2>三、系统权限与剪贴板</h2>
+        <p>
+          当前离线版本不申请网络访问、定位、联系人、相机、
+          麦克风、电话、短信、照片或共享存储读取、通知权限。
+          清单等数据保存在应用私有目录，不需要共享存储权限。
+        </p>
+
+        <h3>3.1 主动复制</h3>
+        <p>
+          <strong>只有您主动点击复制功能时，GATE 才会将对应内容写入系统剪贴板。</strong>
+          应用不主动后台读取剪贴板；您在输入框中进行粘贴时，
+          由您的操作和系统输入功能完成。
+        </p>
+        <p>
+          系统剪贴板的保留、展示及其他软件对其的访问，
+          受操作系统版本、设备设置和其他软件行为影响。
+          清除 GATE 的本地数据不会自动清除系统剪贴板。
+        </p>
+        <p>
+          在适用版本中，密码复制会使用系统支持的敏感内容标记。
+          <strong>该标记不保证所有设备均隐藏预览，
+          也不保证其他软件无法访问已复制的内容。</strong>
+          请谨慎复制和保存密码。
+        </p>
+
+        <h3>3.2 设备与系统行为</h3>
+        <p>
+          操作系统、输入法、截图、备份或设备迁移功能可能产生独立的数据处理。
+          这些行为不由 GATE 的工具模块直接控制。
+          请结合相应系统和服务的隐私设置管理数据。
+        </p>
+      </section>
+
+      <section id="browser">
+        <h2>四、外部浏览器与第三方服务</h2>
+        <p>
+          GATE 不包含内置网页浏览功能。
+          您点击首次协议弹窗中的隐私政策或用户协议链接，
+          或通过设置中的独立入口查看这些文件时，
+          应用将请求系统使用外部浏览器或可处理该网页链接的应用打开对应地址。
+        </p>
+        <p>
+          <mark>查看网页需要由浏览器连接互联网，但 GATE 不会随链接附加
+          您的清单正文、文本内容、生成密码或操作足迹。</mark>
+        </p>
+        <p>
+          浏览器及网页服务在提供访问时，可能处理 IP 地址、访问时间、
+          请求地址、浏览器请求头、Cookie 等信息。
+          相关处理由浏览器及网站的实际服务方式决定，请同时阅读其隐私说明。
+          对于我们运营的政策网页，我们仅在提供页面访问和保障服务所必需的范围内处理相关信息，
+          不将这些信息与 GATE 的本地工具内容关联。
+        </p>
+        <p>
+          GATE 不读取外部浏览器的浏览记录或 Cookie。
+          如需清理网页访问数据，请使用浏览器自身的隐私和数据清除设置。
+        </p>
+        <p>
+          当前版本不集成广告 SDK、用户画像服务或应用行为统计 SDK。
+          应用商店、操作系统和浏览器自行提供的服务，
+          不等同于 GATE 向其上传本地工具数据。
+        </p>
+      </section>
+
+      <section id="sharing">
+        <h2>五、信息共享、转移与公开披露</h2>
+        <p>
+          <strong>我们不出售您的个人信息，
+          不将本地工具内容用于广告定向，也不主动获取或共享您设备上的工具数据。</strong>
+        </p>
+        <p>
+          对于您主动联系所提供的信息，
+          除处理您的请求所必需、取得依法所需的同意、
+          履行法定义务或其他法律允许的情形外，
+          我们不向独立第三方提供，也不公开披露。
+        </p>
+        <p>
+          如委托服务商协助处理咨询邮件等事项，
+          我们将依法约定处理目的、范围和安全义务，
+          并要求其仅按必要范围处理。
+        </p>
+        <p>
+          如因合并、分立、重组或资产转让等导致我们持有的个人信息转移，
+          我们将依法告知接收方名称和联系方式，并要求接收方继续履行保护义务。
+          涉及依法需要重新取得同意的处理变化时，将履行相应程序。
+        </p>
+      </section>
+
+      <section id="storage">
+        <h2>六、数据存储与安全</h2>
+        <h3>6.1 本地存储</h3>
+        <p>
+          清单、协议同意状态和操作足迹保存在设备上的应用私有存储。
+          其他普通应用通常不能直接访问该目录，
+          但设备被破解、获得高权限访问或系统环境异常时，可能存在额外风险。
+        </p>
+        <p>
+          应用配置关闭常规应用备份。
+          不同操作系统和厂商的备份、数据迁移行为可能存在差异，
+          请根据实际设备设置管理备份与迁移。
+        </p>
+        <p>
+          删除项目、清除本地数据、撤回同意并清除数据或卸载应用，
+          会按对应操作范围删除应用保存的数据。
+          <strong>这些操作不能替您清除系统剪贴板、
+          外部浏览器数据、截图或您另行保存的副本。</strong>
+        </p>
+
+        <h3>6.2 安全保护</h3>
+        <p>
+          我们通过本地处理、应用私有存储、
+          避免持久化保存工具敏感结果等方式减少不必要的数据暴露。
+          我们不会承诺“绝对安全”或“所有环境下均不会泄露”。
+        </p>
+        <p>
+          请妥善保护设备，及时更新操作系统，
+          谨慎使用第三方输入法、剪贴板工具和截图功能。
+          本地内容一旦删除，GATE 不提供云端找回服务。
+        </p>
+        <p>
+          对于我们依法负责处理的信息，如发生个人信息安全事件，
+          将采取必要补救措施，并按照适用法律履行通知和报告义务。
+        </p>
+      </section>
+
+      <section id="rights">
+        <h2>七、您的权利与数据管理</h2>
+        <h3>7.1 查看、修改与删除</h3>
+        <ul>
+          <li>在行动清单中查看、添加、勾选和删除项目。</li>
+          <li>在操作足迹页面查看或清空记录。</li>
+          <li>在设置中清除清单和操作足迹。</li>
+          <li>通过操作系统的应用存储管理清除应用存储或卸载应用。</li>
+        </ul>
+
+        <h3>7.2 撤回同意</h3>
+        <p>
+          您可以在设置中使用撤回同意功能。
+          该操作会清除应用保存的清单、操作足迹和协议同意状态，
+          并返回协议页面。重新使用工具前，需要重新阅读并同意相关文件。
+        </p>
+        <p>
+          撤回同意不影响撤回前基于有效同意进行处理的合法性。
+          已向联系邮箱发送的信息、外部浏览器数据和系统剪贴板
+          不会因该操作自动删除。
+        </p>
+
+        <h3>7.3 其他个人信息权利</h3>
+        <p>
+          对于我们实际持有的有关个人信息，
+          您可依据适用法律请求查阅、复制、更正、补充、删除，
+          或要求解释相关处理规则。
+          您也可以依法提出限制处理或其他适用的个人信息权利请求。
+        </p>
+        <p>
+          为防止未经授权的请求，我们可能要求您提供必要且适度的核验信息。
+          我们将在适用法律要求的期限内处理并答复；
+          无法满足请求时，将在法律允许范围内说明原因。
+        </p>
+        <p>
+          由于本地工具数据未上传，我们不能直接从服务器查询或替您恢复清单等本机内容。
+          您可使用应用内或系统提供的功能自行管理这些数据。
+        </p>
+        <p>
+          GATE 不提供注册账号，因此不存在应用账号注销事项。
+          您可以通过清除本地数据、撤回同意或卸载应用停止使用。
+        </p>
+
+        <h3>7.4 随时查看本政策</h3>
+        <p>
+          您可以通过首次协议弹窗中的“隐私政策”链接，
+          或“设置 → 隐私政策”独立入口查看本政策。
+          对应页面由外部浏览器打开。
+        </p>
+      </section>
+
+      <section id="children">
+        <h2>八、未成年人保护</h2>
+        <p>
+          未成年人应在监护人的指导下阅读本政策，
+          并在取得依法所需的监护人同意后使用。
+          GATE 不要求提供年龄、身份信息或注册账号。
+        </p>
+        <p>
+          <strong>不满十四周岁未成年人的个人信息属于敏感个人信息。</strong>
+          我们不主动要求未成年人提交此类信息。
+          如通过咨询邮件等渠道获知正在处理此类信息，
+          将依照适用法律采取必要保护措施，
+          并在依法需要时取得监护人同意。
+        </p>
+        <p>
+          监护人如认为未成年人未经必要同意向我们提供了个人信息，
+          可通过联系邮箱申请核实和处理。
+        </p>
+      </section>
+
+      <section id="updates">
+        <h2>九、本政策的更新</h2>
+        <p>
+          我们可能因产品功能或法律法规变化更新本政策，
+          并在本页面标明更新日期。
+        </p>
+        <p>
+          如未来新增联网、广告、统计、账号或其他会改变信息处理方式的功能，
+          我们将在启用相关处理前更新隐私说明，
+          并依法履行必要的告知、同意或单独同意程序。
+        </p>
+        <p>
+          对于重大变化，我们将通过应用内提示、协议弹窗或其他适当方式告知。
+          不会仅以您继续使用应用作为所有新增个人信息处理的授权。
+        </p>
+      </section>
+
+      <section id="contact">
+        <h2>十、联系我们</h2>
+        <div class="contact">
+          <p><strong>应用名称：</strong>GATE</p>
+          <p><strong>运营主体：</strong>山东鑫陈数码科技有限公司</p>
+          <p>
+            <strong>联系邮箱：</strong>
+            <a href="mailto:ppi5854@163.com">ppi5854@163.com</a>
+          </p>
+          <p>
+            如有隐私疑问、个人信息权利请求或投诉，
+            请在邮件主题中注明“GATE 隐私咨询”或“GATE 个人信息请求”，
+            并说明您的问题及必要的联系方式。
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>GATE · 山东鑫陈数码科技有限公司</p>
+      <p>本页面不引用外部脚本、字体、图片或统计服务。</p>
+    </footer>
+  </div>
+</body>
+</html>
